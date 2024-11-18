@@ -8,41 +8,39 @@ const SumCalculator = () => {
     
 
     const handleInputChange = (e) => {
-        setInputValue(e.target.value)
+            const value = e.target.value;
+            setInputValue(value);
 
-    }
-
-    useEffect(() =>{
-       const calculateSum = () => {
-        const total = arr.reduce((acc, num) => acc + num, 0);
-        setSum(total);
-       }
-       calculateSum();  
-    }, [arr]);
-
-
-    const handleAddNumber = () => {
-        const parsedInt = parseInt(inputValue, 10);
+        const parsedInt = parseInt(value, 10);
         if (!isNaN(parsedInt)) {
             setArr((prevArr) => [ ...prevArr, parsedInt]);
 
         }
-        setInputValue("");
-    }
+    };
+
+
+    useEffect(() =>{
+          
+        const total = arr.reduce((acc, num) => acc + num, 0);
+        setSum(total);  
+    }, [arr]);
+
+
+    
 
 
   return (
     <div>
         {/* ONS Do not remove the main div */}
-        <input type="number" name="numVal" value={ inputValue } onChange={handleInputChange} ></input>
-        <button onClick={handleAddNumber}>Add Number</button>
-
+        <h1>Sum Calculator</h1>
+        <input type="number" name="numVal" value={ inputValue } onChange={handleInputChange} />
+       
         <div style={{ marginTop: "20px" }}>
             <h3>Sum: {sum} </h3>
         </div>
 
     </div>
-  )
-}
+  );
+};
 
-export default SumCalculator
+export default SumCalculator;

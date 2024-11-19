@@ -8,16 +8,14 @@ const SumCalculator = () => {
     
 
     const handleInputChange = (e) => {
-            const value = e.target.value;
-            setInputValue(value);
-
+        const value = e.target.value;
+        setInputValue(value);
         const parsedInt = parseInt(value, 10);
         if (!isNaN(parsedInt)) {
-            setArr((prevArr) => [ ...prevArr, parsedInt]);
-
+            setSum(parsedInt); 
         }
     };
-
+    
 
     useEffect(() =>{
           
